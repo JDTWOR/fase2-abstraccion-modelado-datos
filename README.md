@@ -1,5 +1,7 @@
 # Fase 2 — Abstracción y modelado de datos
 
+Estudiante: Jhon Deivid Rojas Rodriguez. Grupo: 301305_298.
+
 Aplicación de escritorio en Python para el caso del restaurante Sabor & Sazón. Permite registrar clientes, consultar el precio del menú elegido y calcular el valor total según el número de sesiones.
 
 ## Ejecutar

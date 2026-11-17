@@ -68,7 +68,7 @@ class AplicacionSaborSazon:
 
     def mostrar_acceso(self):
         self._limpiar()
-        self._titulo(NOMBRE_APP, f"Autor: {AUTOR}")
+        self._titulo(NOMBRE_APP, f"Autor: {AUTOR} | Grupo: 301305_298")
 
         panel = tk.Frame(self.contenedor, bg=COLOR_PANEL, bd=1, relief="solid")
         panel.pack(pady=24, padx=40, fill="x")
