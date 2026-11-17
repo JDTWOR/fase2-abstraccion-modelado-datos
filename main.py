@@ -1,15 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Sabor & Sazón - Aplicación de gestión de clientes (interfaz gráfica)
-Fase 2 - Fundamentos de Abstracción y Modelado de Datos
-Curso: Estructura de Datos (301305-16-04) - UNAD
-Grupo colaborativo: 298
-Autor: Jhon Deivid Rojas Rodriguez
-
-Ejecutar con:  python main.py
-Requisitos: Python 3.8 o superior con Tkinter (incluido en la instalación
-estándar de Python en Windows). No requiere librerías externas.
-"""
+"""Interfaz de registro de clientes de Sabor & Sazón."""
 
 import os
 import sys
@@ -19,10 +8,6 @@ from tkinter import messagebox, ttk
 
 from gestion_clientes import (CLAVE_ACCESO, GENEROS, MENUS, GestionClientes,
                               formatear_pesos)
-
-# --------------------------------------------------------------------------
-# Datos del autor y paleta personalizada del formulario
-# --------------------------------------------------------------------------
 AUTOR = "Jhon Deivid Rojas Rodriguez"
 NOMBRE_APP = "Sabor & Sazón - Gestión de Clientes"
 
@@ -58,7 +43,6 @@ class AplicacionSaborSazon:
 
         self.mostrar_acceso()
 
-    # ------------------------------------------------------------------
     def _cargar_logo(self):
         """Carga el logo de la aplicación; si no está, devuelve None."""
         try:
@@ -82,9 +66,6 @@ class AplicacionSaborSazon:
                      bg=COLOR_FONDO, fg=COLOR_TEXTO).pack(pady=(2, 0))
         return marco
 
-    # ------------------------------------------------------------------
-    # 1. Interfaz de acceso (Figura 1 del Anexo 1)
-    # ------------------------------------------------------------------
     def mostrar_acceso(self):
         self._limpiar()
         self._titulo(NOMBRE_APP, f"Autor: {AUTOR}")
@@ -122,9 +103,6 @@ class AplicacionSaborSazon:
             self.etiqueta_mensaje.config(text="Contraseña incorrecta. Intente de nuevo.")
             self.var_clave.set("")
 
-    # ------------------------------------------------------------------
-    # 2. Interfaz de registro de datos (Figura 2 del Anexo 1)
-    # ------------------------------------------------------------------
     def mostrar_registro(self):
         self._limpiar()
         self.root.unbind("<Return>")
@@ -269,9 +247,6 @@ class AplicacionSaborSazon:
         self.var_costo.set("")
         self.var_fecha.set(datetime.now().strftime("%Y-%m-%d %H:%M"))
 
-    # ------------------------------------------------------------------
-    # 3. Interfaz de reporte (Figura 3 del Anexo 1)
-    # ------------------------------------------------------------------
     def mostrar_reporte(self):
         if not self.gestion.registros:
             messagebox.showinfo("Sin registros",
@@ -329,7 +304,6 @@ class AplicacionSaborSazon:
                   bg=COLOR_PRIMARIO, fg="white", cursor="hand2", width=20,
                   command=reporte.destroy).pack(pady=(0, 16))
 
-    # ------------------------------------------------------------------
     def confirmar_salida(self):
         if messagebox.askyesno("Confirmar salida",
                                "¿Está seguro de que desea salir de la aplicación?"):

@@ -17,11 +17,8 @@ La aplicación guarda los registros en memoria; al cerrarla, se borran.
 - `main.py`: interfaz gráfica y flujo de registro y consulta.
 - `gestion_clientes.py`: datos, validaciones, tarifas y cálculo del total.
 - `pruebas_gestion_clientes.py`: comprobaciones incluidas con el proyecto.
-- `docs/abstraccion/abstraccion-fase2.md`: tabla de abstracción en formato Markdown.
 - `logo_sabor_sazon.png`: recurso visual de la aplicación.
 
 ## Cálculo
 
 `total = número de sesiones × tarifa del menú`
-
-La tabla de abstracción está transcrita en Markdown para que GitHub pueda mostrarla directamente. Este repositorio no incluye la guía de la actividad ni la plantilla gráfica institucional.

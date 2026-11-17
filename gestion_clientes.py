@@ -1,14 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Sabor & Sazón - Módulo de lógica de negocio
-Fase 2 - Fundamentos de Abstracción y Modelado de Datos
-Curso: Estructura de Datos (301305-16-04) - UNAD
-Grupo colaborativo: 298
-
-Este módulo NO depende de Tkinter: contiene el tipo de dato abstracto
-(clase GestionClientes) y la tabla de valores de los menús, de modo que
-la lógica se pueda probar y reutilizar por separado de la interfaz.
-"""
+"""Registro de clientes y cálculo de costos para Sabor & Sazón."""
 
 from datetime import datetime
 
@@ -39,14 +29,7 @@ def formatear_pesos(valor):
 
 
 class GestionClientes:
-    """Clase pública que almacena los datos del cliente registrado en el
-    formulario y calcula el costo total del servicio.
-
-    Atributos:
-        identificacion (str), nombre_completo (str), genero (str),
-        tipo_menu (str), numero_sesiones (int), fecha_registro (str),
-        costo_sesion (float), costo_total (float) y registros (list).
-    """
+    """Datos del cliente y registros guardados durante la sesión."""
 
     def __init__(self):
         self.identificacion = ""
@@ -59,9 +42,6 @@ class GestionClientes:
         self.costo_total = 0.0
         self.registros = []          # historial de registros guardados
 
-    # ------------------------------------------------------------------
-    # Métodos de la clase
-    # ------------------------------------------------------------------
     def validar_acceso(self, clave):
         """Comprueba la contraseña de ingreso a la aplicación."""
         return str(clave) == CLAVE_ACCESO
@@ -74,13 +54,7 @@ class GestionClientes:
 
     def guardar_registro(self, identificacion, nombre_completo, genero, tipo_menu,
                          numero_sesiones, fecha_registro=None):
-        """Valida y almacena los datos ingresados en el formulario.
-
-        Returns:
-            dict: el registro guardado (incluye el costo total calculado).
-        Raises:
-            ValueError: si algún dato no cumple las validaciones.
-        """
+        """Guarda el registro después de validar los datos."""
         identificacion = str(identificacion).strip()
         nombre_completo = " ".join(str(nombre_completo).split())
 
@@ -135,16 +109,7 @@ class GestionClientes:
         return registro
 
     def calcular_costo_total(self, numero_sesiones, costo_sesion):
-        """Calcula el valor a pagar por el cliente.
-
-        Fórmula:  costo_total = numero_sesiones x costo_sesion
-
-        Args:
-            numero_sesiones (int): sesiones gastronómicas tomadas.
-            costo_sesion (float): valor de cada sesión según el menú.
-        Returns:
-            float: costo total del servicio.
-        """
+        """Multiplica el número de sesiones por el costo de cada una."""
         sesiones = int(numero_sesiones)
         if sesiones < 0 or float(costo_sesion) < 0:
             raise ValueError("Los valores del cálculo no pueden ser negativos.")
